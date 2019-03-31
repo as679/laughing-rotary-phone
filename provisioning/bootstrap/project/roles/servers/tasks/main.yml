@@ -1,0 +1,56 @@
+---
+- lineinfile:
+    dest: /etc/yum.conf
+    regexp: ''
+    insertafter: EOF
+    line: proxy=http://{{ hostvars['jumpbox.student.lab']['privateIp'] }}:3128
+- yum:
+    name: "{{ item }}"
+    state: present
+  with_items:
+  - docker
+- pip:
+    name: "{{ item }}"
+    extra_args: --proxy {{ hostvars['jumpbox.student.lab']['privateIp'] }}:3128
+  with_items:
+  - docker
+- lineinfile:
+    dest: /etc/sysconfig/docker
+    regexp: ''
+    insertafter: EOF
+    line: HTTP_PROXY="http://{{ hostvars['jumpbox.student.lab']['privateIp'] }}:3128"
+- systemd:
+    name: docker
+    enabled: yes
+    state: restarted
+- docker_image:
+    name: "{{ item }}"
+    state: present
+  with_items:
+  - bkimminich/juice-shop
+  - citizenstig/dvwa
+  - smarunich/avinetworks-demo
+- docker_container:
+    name: avinetworks-demo
+    image: smarunich/avinetworks-demo
+    ports:
+     - 80:80
+     - 443:443
+    detach: true
+    state: started
+- docker_container:
+    name: shop 
+    image: bkimminich/juice-shop
+    ports:
+     - 8080:3000
+    detach: true
+    state: started
+- docker_container:
+    name: dvwa
+    image: citizenstig/dvwa
+    ports:
+     - 8081:80
+    detach: true
+    state: started
+    env:
+      MYSQL_PASS: "Chang3ME!"

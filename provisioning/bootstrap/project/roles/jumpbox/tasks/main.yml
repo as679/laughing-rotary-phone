@@ -1,0 +1,32 @@
+---
+- yum:
+    name: "{{ item }}"
+    state: present
+  with_items:
+  - docker
+  - dnsmasq
+  - bind-utils
+- systemd:
+    name: docker
+    enabled: yes
+    state: restarted
+- docker_image:
+    name: "{{ item }}"
+    state: present
+  with_items:
+  - avinetworks/avitools:18.2.1
+- lineinfile:
+    dest: /etc/bashrc
+    insertafter: EOF
+    line: alias dig="docker run --net=host -it avinetworks/avitools:18.2.1 dig"
+- docker_container:
+    name: avitools
+    hostname: avitools
+    image: avinetworks/avitools:18.2.1
+    command: bash
+    volumes: /opt:/opt
+    tty: yes
+    interactive: yes
+    restart: yes
+    detach: true
+    state: started
