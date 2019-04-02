@@ -38,6 +38,7 @@
      - 443:443
     detach: true
     state: started
+    restart: yes
 - docker_container:
     name: shop 
     image: bkimminich/juice-shop
@@ -45,6 +46,7 @@
      - 8080:3000
     detach: true
     state: started
+    restart: yes
 - docker_container:
     name: dvwa
     image: citizenstig/dvwa
@@ -52,5 +54,6 @@
      - 8081:80
     detach: true
     state: started
+    restart: yes
     env:
       MYSQL_PASS: "Chang3ME!"

@@ -15,7 +15,7 @@ variable "avi_backup_admin_password" {}
 
 variable "student_count" {
   description = "The class size. Each student gets a controller"
-  default     = 2
+  default     = 1
 }
 variable "lab_timezone" {
   description = "Lab Timezone: PST, EST, GMT or SGT"
@@ -23,7 +23,7 @@ variable "lab_timezone" {
 
 variable "server_count" {
   description = "The class size. Students get a shared servers"
-  default     = 4
+  default     = 2
 }
 
 variable "id" {

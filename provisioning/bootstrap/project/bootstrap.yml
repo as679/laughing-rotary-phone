@@ -8,7 +8,7 @@
   
   roles:
     - avinetworks.avisdk
-#    - controllers
+    - controllers
 
 - hosts: servers
   roles:
