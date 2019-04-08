@@ -23,7 +23,7 @@ variable "lab_timezone" {
 
 variable "server_count" {
   description = "The class size. Students get a shared servers"
-  default     = 2
+  default     = 4
 }
 
 variable "id" {

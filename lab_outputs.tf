@@ -10,7 +10,7 @@ output "JumpHost_PrivateIP" {
 }
 
 output "Controller_PublicIP" {
-  value = "${aws_instance.ctrl.*.public_ip}"
+  value = "${aws_eip.ctrl_eip.*.public_ip}"
 }
 
 output "Controller_PrivateIP" {
