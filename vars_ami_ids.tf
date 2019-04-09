@@ -28,7 +28,7 @@ variable "ami_centos" {
 
   default = {
     eu-west-1 = "ami-05bf5629af1a40963"
-    us-east-1 = "ami-0bf59e996e9d909f9"
-    us-west-2 = "ami-041306c20ecd1c23c"
+    us-east-1 = "ami-0e9509b5ed76ece3b"
+    us-west-2 = "ami-0eafc8a82f99ba708"
   }
 }
