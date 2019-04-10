@@ -70,3 +70,13 @@ resource "aws_route_table_association" "pubrta" {
   subnet_id      = "${aws_subnet.pubnet.id}"
   route_table_id = "${aws_route_table.pubrt.id}"
 }
+
+resource "tls_private_key" "generated_access_key" {
+  algorithm = "RSA"
+  rsa_bits  = 4096
+}
+
+resource "aws_key_pair" "generated_access_key_pair" {
+  key_name   = "${var.key_name}_generated"
+  public_key = "${tls_private_key.generated_access_key.public_key_openssh}"
+}

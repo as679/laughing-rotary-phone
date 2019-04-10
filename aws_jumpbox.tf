@@ -20,7 +20,8 @@ resource "aws_instance" "jump" {
   ami                         = "${lookup(var.ami_centos, var.aws_region)}"
   availability_zone           = "${lookup(var.aws_az, var.aws_region)}"
   instance_type               = "${var.flavour_centos}"
-  key_name                    = "${var.key}"
+#  key_name                    = "${var.key}"
+  key_name                    = "${aws_key_pair.generated_access_key_pair.key_name}"
   vpc_security_group_ids      = ["${element(aws_security_group.jumpsg.*.id, count.index)}"]
   subnet_id                   = "${aws_subnet.pubnet.id}"
   associate_public_ip_address = true

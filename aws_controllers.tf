@@ -28,7 +28,8 @@ resource "aws_instance" "ctrl" {
   ami                         = "${lookup(var.ami_avi_controller, var.aws_region)}"
   availability_zone           = "${lookup(var.aws_az, var.aws_region)}"
   instance_type               = "${var.flavour_avi}"
-  key_name                    = "${var.key}"
+  #key_name                    = "${var.key}"
+  key_name                    = "${aws_key_pair.generated_access_key_pair.key_name}"
   vpc_security_group_ids      = ["${aws_security_group.ctrlsg.id}"]
   subnet_id                   = "${aws_subnet.pubnet.id}"
   iam_instance_profile        = "AviController-Refined-Role"

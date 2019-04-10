@@ -21,3 +21,7 @@ output "Server_PrivateIP" {
   value = "${aws_instance.server.*.private_ip}"
 }
 
+output "Generated_Access_Key" {
+  value = "${tls_private_key.generated_access_key.private_key_pem}"
+}
+

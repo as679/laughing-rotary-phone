@@ -27,7 +27,7 @@ variable "ami_centos" {
   description = "CentOS AMI by region updated 10/10/18"
 
   default = {
-    eu-west-1 = "ami-05bf5629af1a40963"
+    eu-west-1 = "ami-02eb78917d49751ef"
     us-east-1 = "ami-0bf59e996e9d909f9"
     us-west-2 = "ami-041306c20ecd1c23c"
   }

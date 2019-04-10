@@ -50,3 +50,8 @@ variable "key" {
   description = "AWS SSH keypair name"
   default     = "training-access"
 }
+
+variable "key_name" {
+  description = "Generated AWS SSH keypair name"
+  default     = "training-access"
+}
