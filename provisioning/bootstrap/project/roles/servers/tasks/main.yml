@@ -39,6 +39,7 @@
     detach: true
     state: started
     restart: yes
+    restart_policy: always
 - docker_container:
     name: shop 
     image: bkimminich/juice-shop
@@ -47,6 +48,7 @@
     detach: true
     state: started
     restart: yes
+    restart_policy: always
 - docker_container:
     name: dvwa
     image: citizenstig/dvwa
@@ -55,5 +57,6 @@
     detach: true
     state: started
     restart: yes
+    restart_policy: always
     env:
       MYSQL_PASS: "Chang3ME!"

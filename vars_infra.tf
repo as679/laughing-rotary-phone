@@ -3,7 +3,7 @@
 
 variable "vpc_cidr" {
   description = "Primary CIDR block for VPC"
-  default     = "172.21.0.0/16"
+  default     = "172.20.0.0/16"
 }
 
 variable "flavour_centos" {
