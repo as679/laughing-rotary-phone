@@ -77,6 +77,6 @@ resource "tls_private_key" "generated_access_key" {
 }
 
 resource "aws_key_pair" "generated_access_key_pair" {
-  key_name   = "${var.key_name}_generated"
+  key_name   = "${var.id}_${var.aws_region}_${var.key_name}_generated"
   public_key = "${tls_private_key.generated_access_key.public_key_openssh}"
 }
