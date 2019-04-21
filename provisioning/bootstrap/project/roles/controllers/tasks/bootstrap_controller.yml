@@ -80,4 +80,9 @@
       zones:
         - availability_zone: "{{ hostvars['jumpbox.student.lab']['availabilityZone'] }}"
           mgmt_network_name: "{{ hostvars['jumpbox.student.lab']['Lab_avi_management_network'] }}"
+      custom_tags:
+        - tag_val: "{{ hostvars['jumpbox.student.lab']['Owner'] }}"
+          tag_key: Owner
+        - tag_val: "{{ hostvars['jumpbox.student.lab']['Lab_Timezone'] }}"
+          tag_key: Lab_Timezone
   register: cloud
