@@ -29,3 +29,4 @@
       username: "{{ hostvars['jumpbox.student.lab']['Lab_avi_backup_admin_username'] }}"
       password: "{{ hostvars['jumpbox.student.lab']['Lab_avi_backup_admin_password'] }}"
   delegate_to: localhost
+  ignore_errors: yes
