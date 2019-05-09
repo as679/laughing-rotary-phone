@@ -34,6 +34,7 @@
 - name: Basic system configuration
   avi_systemconfiguration:
     avi_credentials: "{{ avi_credentials }}"
+    welcome_workflow_complete: true
     dns_configuration:
       server_list:
         - addr: 8.8.8.8
@@ -80,9 +81,15 @@
       zones:
         - availability_zone: "{{ hostvars['jumpbox.student.lab']['availabilityZone'] }}"
           mgmt_network_name: "{{ hostvars['jumpbox.student.lab']['Lab_avi_management_network'] }}"
-      custom_tags:
-        - tag_val: "{{ hostvars['jumpbox.student.lab']['Owner'] }}"
-          tag_key: Owner
-        - tag_val: "{{ hostvars['jumpbox.student.lab']['Lab_Timezone'] }}"
-          tag_key: Lab_Timezone
-  register: cloud
+    custom_tags:
+      - tag_val: "{{ hostvars['jumpbox.student.lab']['Owner'] }}"
+        tag_key: Owner
+      - tag_val: "{{ hostvars['jumpbox.student.lab']['Lab_Timezone'] }}"
+        tag_key: Lab_Timezone
+- name: Update SEG Default-Group EC2 instance type
+  avi_serviceenginegroup:
+    avi_credentials: "{{ avi_credentials }}"
+    cloud_ref: "/api/cloud?name=AWS"
+    name: Default-Group
+    instance_flavor: t2.micro
+    se_name_prefix: "{{ inventory_hostname.split('.')[1] }}"
