@@ -86,6 +86,7 @@
         tag_key: Owner
       - tag_val: "{{ hostvars['jumpbox.student.lab']['Lab_Timezone'] }}"
         tag_key: Lab_Timezone
+
 - name: Update SEG Default-Group EC2 instance type
   avi_serviceenginegroup:
     avi_credentials: "{{ avi_credentials }}"
@@ -93,3 +94,11 @@
     name: Default-Group
     instance_flavor: t2.micro
     se_name_prefix: "{{ inventory_hostname.split('.')[1] }}"
+
+- name: Update the backup passphrase
+  avi_backupconfiguration:
+    avi_credentials: "{{ avi_credentials }}"
+    name: Backup-Configuration
+    backup_passphrase: "{{ avi_credentials.password }}"
+    save_local: true
+
