@@ -92,7 +92,7 @@
     avi_credentials: "{{ avi_credentials }}"
     cloud_ref: "/api/cloud?name=AWS"
     name: Default-Group
-    instance_flavor: t2.micro
+    instance_flavor: t2.medium
     se_name_prefix: "{{ inventory_hostname.split('.')[1] }}"
 
 - name: Update the backup passphrase
@@ -101,4 +101,3 @@
     name: Backup-Configuration
     backup_passphrase: "{{ avi_credentials.password }}"
     save_local: true
-
