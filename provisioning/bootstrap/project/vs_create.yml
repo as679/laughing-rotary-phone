@@ -38,7 +38,7 @@
         api_version: "{{ avi_version.obj.version }}"
         http_method: get
         path: networksubnetlist
-        params: { cloud_uuid: "{{ avi_cloud.obj.results[0].uuid }}", name: "avi101_VIP_network" }
+        params: { cloud_uuid: "{{ avi_cloud.obj.results[0].uuid }}", name: "{{ hostvars['jumpbox.student.lab']['Lab_avi_vip_network'] }}" }
       register: avi_subnet
       delegate_to: localhost
 
