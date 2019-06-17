@@ -20,7 +20,9 @@ variable "vol_size_centos" {
   description = "Volume size for instances in G"
   default     = "15"
 }
+
 variable "vol_size_avi" {
   description = "Volume size for Avi controllers in G"
   default     = "64"
 }
+

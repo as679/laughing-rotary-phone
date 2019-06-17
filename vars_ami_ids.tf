@@ -6,7 +6,7 @@
 # --region eu-west-1 | jq -r '.Images | sort_by(.CreationDate) | last(.[]).ImageId'
 
 variable "ami_avi_controller" {
-  type        = "map"
+  type        = map(string)
   description = "Avi AMI by region updated 07/03/19"
 
   default = {
@@ -23,7 +23,7 @@ variable "ami_avi_controller" {
 # NOTE
 # Prebuilt packer image is used in labs
 variable "ami_centos" {
-  type        = "map"
+  type        = map(string)
   description = "CentOS AMI by region updated 10/10/18"
 
   default = {
@@ -32,3 +32,4 @@ variable "ami_centos" {
     us-west-2 = "ami-041306c20ecd1c23c"
   }
 }
+

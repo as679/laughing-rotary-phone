@@ -4,19 +4,35 @@
 # The following variables should be defined via a seperate mechanism to avoid distribution
 # For example the file terraform.tfvars
 
-variable "aws_access_key" {}
-variable "aws_secret_key" {}
-variable "aws_region" {}
-variable "pkey" {}
-variable "avi_default_password" {}
-variable "avi_admin_password" {}
-variable "avi_backup_admin_username" {}
-variable "avi_backup_admin_password" {}
+variable "aws_access_key" {
+}
+
+variable "aws_secret_key" {
+}
+
+variable "aws_region" {
+}
+
+variable "pkey" {
+}
+
+variable "avi_default_password" {
+}
+
+variable "avi_admin_password" {
+}
+
+variable "avi_backup_admin_username" {
+}
+
+variable "avi_backup_admin_password" {
+}
 
 variable "student_count" {
   description = "The class size. Each student gets a controller"
   default     = 1
 }
+
 variable "lab_timezone" {
   description = "Lab Timezone: PST, EST, GMT or SGT"
 }
@@ -37,7 +53,7 @@ variable "owner" {
 }
 
 variable "aws_az" {
-  type        = "map"
+  type        = map(string)
   description = "Control of placement of objects within the AWS Availability Zone"
 
   default = {
@@ -55,3 +71,4 @@ variable "key_name" {
   description = "Generated AWS SSH keypair name"
   default     = "training-access"
 }
+
