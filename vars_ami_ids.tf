@@ -10,10 +10,10 @@ variable "ami_avi_controller" {
   description = "Avi AMI by region updated 07/03/19"
 
   default = {
-    eu-west-1 = "ami-07fcc60f65fb6bcbd" #18.2.3
-    us-east-1 = "ami-0c6911e1c438309d2" #18.2.3
-    us-west-2 = "ami-0cc9be68abe0b4578" #18.2.3
-  }
+    eu-west-1 = "ami-0e81793951f5d3e2d" #18.2.5
+    us-east-1 = "ami-07f26188aeeedd5dc" #18.2.5
+    us-west-2 = "ami-0ae2dd07fcfd8c1d0" #18.2.5
+   }
 }
 
 # This finds the latest Centos AMI ID
