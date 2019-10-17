@@ -6,14 +6,14 @@
 # --region eu-west-1 | jq -r '.Images | sort_by(.CreationDate) | last(.[]).ImageId'
 
 variable "ami_avi_controller" {
-  type        = "map"
+  type        = map(string)
   description = "Avi AMI by region updated 07/03/19"
 
   default = {
-    eu-west-1 = "ami-07fcc60f65fb6bcbd" #18.2.3
-    us-east-1 = "ami-0c6911e1c438309d2" #18.2.3
-    us-west-2 = "ami-0cc9be68abe0b4578" #18.2.3
-  }
+    eu-west-1 = "ami-0e81793951f5d3e2d" #18.2.5
+    us-east-1 = "ami-07f26188aeeedd5dc" #18.2.5
+    us-west-2 = "ami-0ae2dd07fcfd8c1d0" #18.2.5
+   }
 }
 
 # This finds the latest Centos AMI ID
@@ -23,7 +23,7 @@ variable "ami_avi_controller" {
 # NOTE
 # Prebuilt packer image is used in labs
 variable "ami_centos" {
-  type        = "map"
+  type        = map(string)
   description = "CentOS AMI by region updated 10/10/18"
 
   default = {
@@ -32,3 +32,4 @@ variable "ami_centos" {
     us-west-2 = "ami-041306c20ecd1c23c"
   }
 }
+
