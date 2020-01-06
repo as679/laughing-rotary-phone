@@ -10,9 +10,9 @@ variable "ami_avi_controller" {
   description = "Avi AMI by region updated 07/03/19"
 
   default = {
-    eu-west-1 = "ami-0e81793951f5d3e2d" #18.2.5
-    us-east-1 = "ami-07f26188aeeedd5dc" #18.2.5
-    us-west-2 = "ami-0ae2dd07fcfd8c1d0" #18.2.5
+    eu-west-1 = "ami-0c9d42aa12626b637" #18.2.6
+    us-east-1 = "ami-072d592b6535776f2" #18.2.7
+    us-west-2 = "ami-0416a7968f5001af5" #18.2.7
    }
 }
 
