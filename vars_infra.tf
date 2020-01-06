@@ -23,6 +23,6 @@ variable "vol_size_centos" {
 
 variable "vol_size_avi" {
   description = "Volume size for Avi controllers in G"
-  default     = "64"
+  default     = "128"
 }
 
