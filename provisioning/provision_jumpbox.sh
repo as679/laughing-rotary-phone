@@ -10,6 +10,11 @@ systemctl start nginx
 # Update six for newer ansible-runner
 pip install --upgrade six
 pip install --upgrade avisdk 
+pip install --upgrade pip
+pip install --upgrade setuptools
+pip uninstall -y ansible
+pip install ansible-base
+pip install ansible
 ansible-galaxy install avinetworks.avisdk avinetworks.aviconfig --force
 git clone git://github.com/ansible/ansible-runner /tmp/ansible-runner
 yum install -y bind-utils vim tmux jq

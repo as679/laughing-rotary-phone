@@ -11,7 +11,7 @@ data "template_file" "jumpbox_userdata" {
     region       = var.aws_region
     az           = var.aws_az[var.aws_region]
     mgmt_net     = aws_subnet.mgmtnet.tags.Name
-    pkey         = var.pkey
+    pkey         = tls_private_key.generated_access_key.private_key_pem
   }
 }
 
